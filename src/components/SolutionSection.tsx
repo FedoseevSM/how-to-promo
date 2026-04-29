@@ -50,17 +50,17 @@ export function SolutionSection() {
           <div className="flex flex-col gap-3 sm:gap-4 pt-2 sm:pt-4">
             <Button
               size="lg"
-              className="w-full sm:w-auto gap-2 bg-blue-600 hover:bg-blue-500 text-sm sm:text-base h-11 sm:h-12">
+              className="hidden w-full sm:w-auto gap-2 bg-blue-600 hover:bg-blue-500 text-sm sm:text-base h-11 sm:h-12">
               
               Попробовать бесплатно <ArrowRight className="h-4 w-4" />
             </Button>
             <a
-              href="https://freechising.org"
+              href="https://freechising.ru"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center w-full sm:w-auto h-11 sm:h-12 px-4 sm:px-6 rounded-lg border border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors gap-2 font-medium text-sm sm:text-base">
               
-              Перейти на freechising.org <ExternalLink className="h-4 w-4" />
+              Перейти на freechising.ru <ExternalLink className="h-4 w-4" />
             </a>
           </div>
         </div>
