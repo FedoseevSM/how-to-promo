@@ -21,7 +21,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18'
-        cache: 'npm'
 
     - name: Generate package-lock.json и dependencies
       run: npm install
