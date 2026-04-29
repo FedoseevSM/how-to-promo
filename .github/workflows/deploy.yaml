@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - "master" # change to the branch you wish to deploy from
+      - "master"
 
 permissions:
   contents: read
@@ -22,11 +22,17 @@ jobs:
       with:
         node-version: '20'
         cache: 'npm'
+        cache-dependency-path: '**/package-lock.json'
 
-    - name: Generate package-lock.json
-      run: npm install
+    - name: Install dependencies and generate lockfile
+      run: |
+        if [ ! -f package-lock.json ]; then
+          npm install
+        else
+          npm ci
+        fi
 
     - id: build-publish
       uses: bitovi/github-actions-react-to-github-pages@v1.2.3
       with:
-        path: dist # change to your build folder
+        path: dist
