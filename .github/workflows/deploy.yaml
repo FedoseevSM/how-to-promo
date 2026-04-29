@@ -6,9 +6,9 @@ on:
       - "master"
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read  # Для checkout
+  pages: write    # Для Pages (если нужно)
+  id-token: write # Для Pages (если нужно)
 
 jobs:
   deploy:
@@ -28,10 +28,8 @@ jobs:
     - name: Build app
       run: npm run build
 
-    - name: Setup Pages
-      uses: actions/configure-pages@v4
-
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v4
       with:
-        path: ./dist
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
