@@ -25,7 +25,13 @@ jobs:
     - name: Generate package-lock.json и dependencies
       run: npm install
 
-    - id: build-publish
-      uses: bitovi/github-actions-react-to-github-pages@v1.2.3
+    - name: Build app
+      run: npm run build
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        path: dist
+        path: ./dist
